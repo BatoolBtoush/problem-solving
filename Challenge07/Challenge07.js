@@ -18,12 +18,17 @@
 
 // ------------------------
 
+
 const objLat = (obj) => {
-    firstName: 'Jaber'
-    lastName: 'Saleh'
-    age: 67
-    hobby: 'Gaming and Sleeping'
-    console.log("my name is "+ objLat.firstName + " "+ objLat.lastName + " I am " + objLat.age + " YO, and I love " + objLat.hobby + ".")
+
+    // to make the letter at index[0] uppercase using .toUpperCase()
+    // and to extract the string from index[1] using .subString()
+    let newFirstName = obj.firstName[0].toUpperCase() + obj.firstName.substring(1); 
+    let newLastName = obj.lastName[0].toUpperCase() + obj.lastName.substring(1);
+
+    let textTemplate = `my name is ${newFirstName} ${newLastName} I am ${obj.age} YO, and I love ${obj.hobby}.`;
+    return textTemplate;
+
 }
 
 
@@ -88,46 +93,15 @@ const objLat = (obj) => {
 //  2- If one of the names is null dont add it to the full name
 
 // ------------------------
+
 const cvFormatter = (arr) => {
-    let newArr = [];
-    let arr = [
-        {
-            firstName: "Jason",
-            LastName: "James",
-            yearsOfExperience: 20,
-            tech: "JS"
-        },
-        {
-            firstName: "Shira",
-            LastName: null,
-            yearsOfExperience: 5,
-            tech: ".Net"
-        },
-        {
-            firstName: "Dmitri",
-            LastName: "Akkerman",
-            yearsOfExperience: 1,
-            tech: "Python"
-        },
-        {
-            firstName: "Isabella",
-            LastName: null,
-            yearsOfExperience: 7,
-            tech: "Java"
-        }
-    ]
-    for (var i =0; i<arr.length ; i++){
-        if (arr[i].yearsOfExperience > 1){
-            newArr.push(arr.firstName + arr.lastName + arr.tech);
-        } else if (arr[i].yearsOfExperience > 1 && arr[i].lastName == null){
-            newArr.push(arr.firstName + arr.tech);
-        } else {
-        }
-    }
-    return newArr
-};
-
-
+    // using .filter() to satisfy the condition of yearsOfExperience>1
+    let yearOne = arr.filter(cv => cv.yearsOfExperience > 1)
+    // using .map() to create a new array of objects after the above modification
+    let newArrayOfObjects = yearOne.map(cv => ({ fullName: `${cv.firstName}${cv.lastName ?` ${cv.lastName}`: "" }`, tech: cv.tech })
+    )
+    return newArrayOfObjects;
+}
 
 
 // 3) ---------------------
