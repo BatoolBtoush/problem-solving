@@ -53,13 +53,7 @@ const customerAndAge = (obj) => {
 
 // -------------------------------------------------------------------------------------------------------
 
-const getEntries = (obj) => {
-    name : "pizza",
-    ingredients: ["bread", "tomato", "chicken", "mayo"],
-    cookTime: "twoHours",
-    price:"25$",
-};
-console.log(Object.entries(getEntries()));
+
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 03
