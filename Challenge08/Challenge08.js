@@ -26,9 +26,15 @@
 
 // -------------------------------------------------------------------------------------------------------
 
+
 const customerAndAge = (obj) => {
-  // write your code here
+  let array = [];
+  for (const property in obj) {
+    array.push(`Customer Name :${property} , Age :${obj[property]}`);
+  }
+  return array;
 };
+
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 02
@@ -54,12 +60,13 @@ const customerAndAge = (obj) => {
 // -------------------------------------------------------------------------------------------------------
 
 const getEntries = (obj) => {
-    name : "pizza",
-    ingredients: ["bread", "tomato", "chicken", "mayo"],
-    cookTime: "twoHours",
-    price:"25$",
+  let recipeArray=[]; 
+  for (const property in obj) {
+    recipeArray.push(`${property}: ${obj[property]}`);
+    }
+    return recipeArray; 
 };
-console.log(Object.entries(getEntries()));
+
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 03
@@ -96,15 +103,18 @@ const courses = [
   },
 ];
 
-const getInfo = (arr) => {
+
+const getInfo = (arr) => {  
   let coursesName = [];
   let studentsName = [];
-  for (var i =0; i<courses.length ; i++){
-    coursesName.push(courses.course);
-    studentsName.push(Students.course);
-}
-  return { coursesName, studentsName };
+  for(let i=0; i<arr.length; i++) {
+      coursesName.push(arr[i].course);
+      for(let b=0; b<arr[i].Students.length; b++)
+      studentsName.push(arr[i].Students[b]);
+  }
+  return {coursesName,studentsName};
 };
+
 
 //  ------------------------------------------------------------------------------------------------------
 // Challenge 04
@@ -125,8 +135,7 @@ const getInfo = (arr) => {
 //  ------------------------------------------------------------------------------------------------------
 
 const getStudents = (arr) => {
-   news = arr.reduce (arr);
-    return news
+    // write your code here
 };
 
 module.exports = {
