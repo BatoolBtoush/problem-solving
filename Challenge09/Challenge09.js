@@ -16,11 +16,10 @@
 // ------------------------
 
 const arrInc = (arr) => {
-    let result = [20, 54, 89, 41];
-    result.forEach(item,index);
-    test[index]=test[index]+10;
-    return result;
-}
+    let increasedArray = [];
+    arr.forEach((number) => increasedArray.push(number + 10));
+    return increasedArray;
+  };
 
 
 // 2) ---------------------
@@ -31,13 +30,11 @@ const arrInc = (arr) => {
 //  [5.4, 5.5 ,6.7, 6.8] ==> [5, 6, 7, 7]
 // 
 // ------------------------
+
 const roundDecimals = (arr) => {
-   let rou = [5.4, 5.5 ,6.7, 6.8]
-   rou.forEach(myFunction);
-   function myFunction(){
-    rou = rou.toFixed(0);
-    return rou
-   }
+    let roundedArray = [];
+   arr.forEach((number) => roundedArray.push(Math.round(number)));
+   return roundedArray;
 }
 
 // 3) ---------------------
@@ -105,8 +102,16 @@ const roundDecimals = (arr) => {
 
 // ------------------------
 const employeesBonus = (arr) => {
-    // write your code here
-}
+  bonus = arr.map((element) => {
+    if (element.workHours > 8) {
+        element.salary = parseFloat(element.salary.slice(0,-1)) + 100 + '$';
+    } else {
+        element.salary = parseFloat(element.salary.slice(0,-1)) + 50 + '$';
+    }
+    return element;
+  });
+  return bonus;
+};
 
 // 4) ---------------------
 // 
@@ -122,8 +127,21 @@ const employeesBonus = (arr) => {
 // 
 // ==> 200
 // ------------------------
-const mostExpensive = (budget, mouseArray, keyBoardArray) => {
-    // write your code here
-}
 
+
+const mostExpensive = (budget, mouseArray, keyBoardArray) => {
+    let sumOfSetup;
+    let maxPrice = 0;
+    mouseArray.forEach((mouse) => {
+      keyBoardArray.forEach((key) => {
+        sumOfSetup = mouse + key;
+        if (sumOfSetup <= budget) {
+          if (sumOfSetup >= maxPrice) {
+            maxPrice = sumOfSetup;
+          }
+        }
+      })
+    })
+       return maxPrice;
+  };
 module.exports = { arrInc, roundDecimals, employeesBonus, mostExpensive };

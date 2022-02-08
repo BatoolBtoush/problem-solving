@@ -59,13 +59,7 @@ const customerAndAge = (obj) => {
 
 // -------------------------------------------------------------------------------------------------------
 
-const getEntries = (obj) => {
-  let recipeArray=[]; 
-  for (const property in obj) {
-    recipeArray.push(`${property}: ${obj[property]}`);
-    }
-    return recipeArray; 
-};
+
 
 
 // -------------------------------------------------------------------------------------------------------
