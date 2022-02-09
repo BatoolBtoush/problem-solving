@@ -135,7 +135,17 @@ const getInfo = (arr) => {
 //  ------------------------------------------------------------------------------------------------------
 
 const getStudents = (arr) => {
-    // write your code here
+  return arr.map(std => {
+    let stdCourse = "";
+    courses.forEach(course => {
+      if (course.Students.includes(std))
+      stdCourse = course.course;
+    })
+    return {
+      student: std,
+      course: stdCourse
+    };
+  });
 };
 
 module.exports = {
