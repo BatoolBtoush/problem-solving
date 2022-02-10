@@ -102,7 +102,8 @@ const roundDecimals = (arr) => {
 
 // ------------------------
 const employeesBonus = (arr) => {
-  bonus = arr.map((element) => {
+  // let bonus
+ let bonus = arr.map((element) => {
     if (element.workHours > 8) {
         element.salary = parseFloat(element.salary.slice(0,-1)) + 100 + '$';
     } else {
