@@ -125,7 +125,30 @@ const cvFormatter = (arr) => {
 
 // ------------------------
 const applicationsStatics = (arr) => {
-    // write your code here
+    let result = {
+    python_Devs: 0,
+    javaScript_Devs: 0,
+    dotNet_Devs: 0,
+    java_Devs: 0,
+    totalApplicants: 0,
+    rejectedApplicants: 0,
+    }
+    
+    
+    const acceptedDevs = arr.filter(dev =>
+        (dev.yearsOfExperience >=1 && ((dev.firstName !== "" && dev.lastName !== "") && (dev.firstName !== null && dev.lastName !== null)))
+        );
+
+    arr.forEach(dev =>{
+        result.totalApplicants++;
+        result.dotNet_Devs+= dev.tech === ".Net" ? 1:0;
+        result.java_Devs+= dev.tech === "Java" ? 1:0;
+        result.python_Devs+= dev.tech === "Python" ? 1:0;
+        result.javaScript_Devs+= dev.tech === "JS" ? 1:0;
+
+    })
+    result.rejectedApplicants = arr.length - acceptedDevs.length;
+    return result;
 };
 
 // 4) ---------------------
@@ -250,7 +273,16 @@ let data = {
 //  2- You need to round the average to the nearest lower number 
 
 const classesAvg = (data) => {
-    // write your code here
+
+    data.grades.map(grade =>
+        grade.classes.map(scoreAvg => {
+            let sum =0;
+            scoreAvg.classScores.forEach(score => sum += score);
+            scoreAvg.avg = Math.floor(sum /scoreAvg.classScores.length);
+            return scoreAvg;
+        })
+    );
+    return data;
 };
 
 module.exports = { objLat, cvFormatter, applicationsStatics, classesAvg };
